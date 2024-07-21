@@ -19,7 +19,6 @@ async {
   UserDataFromStorage.getData();
 
 
-
   runApp(MyApp());
 
 }
