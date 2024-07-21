@@ -4,7 +4,7 @@ import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/features/presentation/login/views/login.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_cubit.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/splash_screen.dart';
 import 'package:e_commerce_app/style/my_theme.dart';

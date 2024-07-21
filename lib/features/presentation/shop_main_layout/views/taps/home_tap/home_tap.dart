@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/style/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/widgets/nav_Bar_item_selected.dart';
+import '../../../../../../core/widgets/nav_Bar_item_selected.dart';
 
 class HomeTap extends StatelessWidget {
   const HomeTap({super.key});
