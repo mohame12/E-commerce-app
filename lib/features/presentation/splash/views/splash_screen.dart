@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/features/presentation/login/views/login.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:flutter/material.dart';
 

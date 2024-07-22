@@ -3,11 +3,14 @@ import 'package:e_commerce_app/core/network/servecs/dioHelper.dart';
 import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/features/presentation/login/views/login.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_cubit.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/splash_screen.dart';
 import 'package:e_commerce_app/style/my_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/presentation/login/cubit/observer.dart';
 
 
@@ -19,7 +22,6 @@ async {
   UserDataFromStorage.getData();
 
 
-
   runApp(MyApp());
 
 }
@@ -29,18 +31,24 @@ class MyApp extends StatelessWidget {
 
   const MyApp({super.key});
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => HomeCubit(),),
+        BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem(),)
+      ],
+      child: MaterialApp(
 
-      theme: lightTheme,
-      debugShowCheckedModeBanner: false,
-      initialRoute:SplashScreen.id,
-      routes: {
-        OnboardingVeiw.id:(context)=>OnboardingVeiw(),
-        LoginView.id:(context)=>const LoginView(),
-        RegisterView.id:(context)=>const RegisterView(),
-        ShopMain.id:(context)=>ShopMain(),
-        SplashScreen.id:(context)=>SplashScreen(),
-      },
+        theme: lightTheme,
+        debugShowCheckedModeBanner: false,
+        initialRoute:SplashScreen.id,
+        routes: {
+          OnboardingVeiw.id:(context)=>OnboardingVeiw(),
+          LoginView.id:(context)=>const LoginView(),
+          RegisterView.id:(context)=>const RegisterView(),
+          ShopMain.id:(context)=>ShopMain(),
+          SplashScreen.id:(context)=>SplashScreen(),
+        },
+      ),
     );
   }
 }
