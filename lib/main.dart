@@ -5,6 +5,7 @@ import 'package:e_commerce_app/features/presentation/login/views/login.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_cubit.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/splash_screen.dart';
 import 'package:e_commerce_app/style/my_theme.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => HomeCubit(),),
+        BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem(),)
       ],
       child: MaterialApp(
 

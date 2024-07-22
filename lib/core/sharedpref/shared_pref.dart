@@ -3,6 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class UserDataFromStorage {
 
+  static late String token;
+
+
   static late String userName;
   static late String userEmail;
   static String ?userPhone;
@@ -95,6 +98,12 @@ class UserDataFromStorage {
     userId=value;
     _setData();
   }
+
+  static settoken(String value) {
+    token=value;
+    _setData();
+  }
+
 
   static setuserCarImage(String value) {
     userCarImage=value;
@@ -240,6 +249,7 @@ class UserDataFromStorage {
     prefs.setString('userPersonalImage',userPersonalImage);
     prefs.setString('userCity',userCity);
     prefs.setString('userId',userId);
+    prefs.setString('token',token);
     prefs.setString('notLogin',notLogin);
 
 
@@ -290,6 +300,7 @@ class UserDataFromStorage {
     userBaseNumber = prefs.getString("userBaseNumber")??'';
     userCity = prefs.getString("userCity")??'';
     userId = prefs.getString("userId")??'';
+    token = prefs.getString("token")??'';
     notLogin = prefs.getString("notLogin")??'';
 
 
@@ -310,6 +321,7 @@ class UserDataFromStorage {
 
 
   }
+
 
 //#endregion
 

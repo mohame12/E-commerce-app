@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/conest.dart';
 import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/core/widgets/def_TFF.dart';
 import 'package:e_commerce_app/core/widgets/defbuttom.dart';
@@ -26,6 +27,9 @@ class LoginView extends StatelessWidget {
         if(state.state)
           {
             UserDataFromStorage.setUserIsLogin(true);
+            UserDataFromStorage.setUserId(state.token);
+            token=state.token ?? '';
+            print(token);
               Fluttertoast.showToast(
                   msg: state.message,
                   toastLength: Toast.LENGTH_LONG,
