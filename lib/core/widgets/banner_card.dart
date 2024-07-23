@@ -10,9 +10,13 @@ class BannerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 5,
-        child: ClipRRect(borderRadius: BorderRadius.circular(10),child: Image(image: NetworkImage(image),fit: BoxFit.cover,)),
+      child: SizedBox(
+        height: 200,
+        width: double.infinity,
+        child: Card(
+          elevation: 5,
+          child: ClipRRect(borderRadius: BorderRadius.circular(10),child: Image(image: NetworkImage(image),fit: BoxFit.fill,)),
+        ),
       ),
     );
   }

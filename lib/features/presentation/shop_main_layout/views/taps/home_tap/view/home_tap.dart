@@ -29,12 +29,12 @@ class HomeTap extends StatelessWidget {
                   .textTheme
                   .titleMedium,),
               actions: [
-                IconButton(icon: Icon(Icons.search), onPressed: () {},)
+                IconButton(icon: const Icon(Icons.search), onPressed: () {},)
               ],
             ),
             body: cubit.banners.isNotEmpty ?
             SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   CarouselSlider(
@@ -49,27 +49,28 @@ class HomeTap extends StatelessWidget {
                       cubit.indx(index);
                     },
                   )),
-              
-                  BlocBuilder<HomeTapCubit,HomeTapState>(
-                    builder: (context, state) {
-                      return DotsIndicator(
-                        dotsCount: cubit.banners.length,
-                        position: cubit.index,
-                        decorator: DotsDecorator(
-                          activeColor: defColor,
-                          size: const Size.square(5.0),
-                          activeSize: const Size(10.0, 4.0),
-                          activeShape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.0)),
-                        ),
-                      );
-                    },
+                  DotsIndicator(
+                    dotsCount: cubit.banners.length,
+                    position: cubit.index,
+                    decorator: DotsDecorator(
+                      activeColor: defColor,
+                      size: const Size.square(5.0),
+                      activeSize: const Size(10.0, 4.0),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3.0)),
+                    ),
                   ),
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Products...',textAlign: TextAlign.start,style: TextStyle(color: Colors.grey),),
+                      )),
                   Padding(
                     padding: const EdgeInsetsDirectional.only(top:5 ),
                     child: GridView.count(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       crossAxisCount:2 ,
 
                       children:
