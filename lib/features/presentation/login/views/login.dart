@@ -1,10 +1,11 @@
+import 'package:e_commerce_app/conest.dart';
 import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/core/widgets/def_TFF.dart';
 import 'package:e_commerce_app/core/widgets/defbuttom.dart';
 import 'package:e_commerce_app/features/presentation/login/cubit/login_cubit.dart';
 import 'package:e_commerce_app/features/presentation/login/cubit/login_state.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/shop_main.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +27,9 @@ class LoginView extends StatelessWidget {
         if(state.state)
           {
             UserDataFromStorage.setUserIsLogin(true);
+            UserDataFromStorage.setUserId(state.token);
+            token=state.token ?? '';
+            print(token);
               Fluttertoast.showToast(
                   msg: state.message,
                   toastLength: Toast.LENGTH_LONG,

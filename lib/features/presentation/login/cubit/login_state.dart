@@ -7,8 +7,9 @@ class LoginSuccessDataState extends LoginState{
 
 final bool state;
 final String message;
+final String token;
 
-  LoginSuccessDataState({required this.message,required this.state});
+  LoginSuccessDataState({required this.message,required this.state,required this.token});
 }
 class LoginFaileurDataState extends LoginState{
   final String e;
