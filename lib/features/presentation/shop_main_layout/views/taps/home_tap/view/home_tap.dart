@@ -66,8 +66,8 @@ class HomeTap extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Products...',textAlign: TextAlign.start,style: TextStyle(color: Colors.grey),),
                       )),
                   Padding(
@@ -83,7 +83,7 @@ class HomeTap extends StatelessWidget {
                         ), ),
                       ),
                   )
-              
+
                 ],
               ),
             ) : Center(child: LoadingAnimationWidget.staggeredDotsWave(color: defColor, size: 20))

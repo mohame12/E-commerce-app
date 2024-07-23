@@ -15,7 +15,7 @@ class HomeTapCubit extends Cubit<HomeTapState>
   {
     if(banners.isEmpty&&products.isEmpty) {
       emit(HomeTapLoadingDataState());
-      Diohelper.getData(url: 'home', token: '').then((val) {
+      Diohelper.getData(url: 'home', token:'').then((val) {
         HomeTapModel model = HomeTapModel.fromJson(val.data);
         banners = model.data.banners;
         products = model.data.products;

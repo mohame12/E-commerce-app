@@ -54,7 +54,7 @@ class RegisterCubit extends Cubit<RegisterState>
       'email':email,
       'password':password,
       'phone':phone,
-    }).then((val){
+    }, token: '').then((val){
       RegisterDataModel dataModel=RegisterDataModel.fromJson(val.data);
       emit(RegisterSuccessDataState(message: dataModel.message, status:dataModel.status  ));
     }).catchError((e){

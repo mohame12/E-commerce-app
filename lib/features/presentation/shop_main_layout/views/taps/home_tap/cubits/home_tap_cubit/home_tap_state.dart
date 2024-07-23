@@ -17,3 +17,5 @@ class ChangeSlider extends HomeTapState{}
 
 class ChangeFavoritIcon extends HomeTapState{}
 
+class AddRemoveFavorits extends HomeTapState{}
+
