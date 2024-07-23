@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_state.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/categors_tap/categoris_tap.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/categors_tap/veiws/categoris_tap.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/favorits_tap/favorait_tap.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/view/home_tap.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/settings_tap/setting_tap.dart';

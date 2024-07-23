@@ -49,20 +49,16 @@ class HomeTap extends StatelessWidget {
                       cubit.indx(index);
                     },
                   )),
-                  BlocBuilder<HomeTapCubit,HomeTapState>(
-                    builder: (context, state) {
-                      return DotsIndicator(
-                        dotsCount: cubit.banners.length,
-                        position: cubit.index,
-                        decorator: DotsDecorator(
-                          activeColor: defColor,
-                          size: const Size.square(5.0),
-                          activeSize: const Size(10.0, 4.0),
-                          activeShape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.0)),
-                        ),
-                      );
-                    },
+                  DotsIndicator(
+                    dotsCount: cubit.banners.length,
+                    position: cubit.index,
+                    decorator: DotsDecorator(
+                      activeColor: defColor,
+                      size: const Size.square(5.0),
+                      activeSize: const Size(10.0, 4.0),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3.0)),
+                    ),
                   ),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width,
