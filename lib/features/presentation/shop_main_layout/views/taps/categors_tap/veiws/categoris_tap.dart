@@ -24,59 +24,63 @@ class CategorisTap extends StatelessWidget {
           length: cubit.categoryDataList.length,
           child: Scaffold(
               appBar: AppBar(
+                forceMaterialTransparency: true,
                 title: Text(
                   'Categors',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               body: cubit.categoryDataList.isNotEmpty
-                  ? Column(
-                      children: [
-                        CarouselSlider(
-                            items: cubit.categoryDataList.map((category) {
-                              return BannerCard(image: category.image);
-                            }).toList(),
-                            options: CarouselOptions(
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              scrollPhysics: BouncingScrollPhysics(),
-                              onPageChanged: (index, reason) {
-                                cubit.changeSliderIndecator(index);
-                              },
-                            )),
-                        DotsIndicator(
-                          dotsCount: cubit.categoryDataList.length,
-                          position: cubit.indx,
-                          decorator: DotsDecorator(
-                            activeColor: defColor,
-                            size: const Size.square(5.0),
-                            activeSize: const Size(10.0, 4.0),
-                            activeShape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(3.0)),
+                  ? SingleChildScrollView(
+                    child: Column(
+                        children: [
+                          CarouselSlider(
+                              items: cubit.categoryDataList.map((category) {
+                                return BannerCard(image: category.image);
+                              }).toList(),
+                              options: CarouselOptions(
+                                autoPlay: true,
+                                enlargeCenterPage: true,
+                                scrollPhysics: BouncingScrollPhysics(),
+                                onPageChanged: (index, reason) {
+                                  cubit.changeSliderIndecator(index);
+                                },
+                              )),
+                          DotsIndicator(
+                            dotsCount: cubit.categoryDataList.length,
+                            position: cubit.indx,
+                            decorator: DotsDecorator(
+                              activeColor: defColor,
+                              size: const Size.square(5.0),
+                              activeSize: const Size(10.0, 4.0),
+                              activeShape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3.0)),
+                            ),
                           ),
-                        ),
-                        TabBar(
-                            physics: BouncingScrollPhysics(),
-                            labelPadding: EdgeInsets.all(5),
-                            overlayColor: WidgetStateColor.transparent,
-                            labelColor: defColor,
-                            tabAlignment: TabAlignment.start,
-                            isScrollable: true,
-                            indicatorColor: Colors.transparent,
-                            dividerColor: Colors.transparent,
-                            tabs: cubit.categoryDataList.map((e) {
-                              return CategoryTabBarItem(text: e.name);
-                            }).toList()),
-                        
-                        
-                        Expanded(
-                          child: GridView.count(crossAxisCount: 2,
+                          TabBar(
+                              physics: BouncingScrollPhysics(),
+                              labelPadding: EdgeInsets.all(5),
+                              overlayColor: WidgetStateColor.transparent,
+                              labelColor: defColor,
+                              tabAlignment: TabAlignment.start,
+                              isScrollable: true,
+                              indicatorColor: Colors.transparent,
+                              dividerColor: Colors.transparent,
+                              tabs: cubit.categoryDataList.map((e) {
+                                return CategoryTabBarItem(text: e.name);
+                              }).toList()),
+
+
+                          GridView.count(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              crossAxisCount: 2,
                           children:
                           List.generate(cubit.categoryDataList.length, (index) => CategoryCardList(image: cubit.categoryDataList[index].image, text: cubit.categoryDataList[index].name),)
-                          ),
-                        )
-                      ],
-                    )
+                          )
+                        ],
+                      ),
+                  )
                   : Center(
                       child: LoadingAnimationWidget.staggeredDotsWave(
                           color: defColor, size: 20))),
