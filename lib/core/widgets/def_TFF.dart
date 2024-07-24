@@ -44,11 +44,11 @@ class DefTff extends StatelessWidget {
         suffixIcon: suffixIcon ,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(2),
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: Colors.grey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(2),
-          borderSide: BorderSide(color: defColor),
+          borderSide: const BorderSide(color: defColor),
         ),
 
       ),

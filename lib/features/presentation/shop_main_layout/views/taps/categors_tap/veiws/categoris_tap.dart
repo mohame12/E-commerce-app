@@ -41,7 +41,7 @@ class CategorisTap extends StatelessWidget {
                               options: CarouselOptions(
                                 autoPlay: true,
                                 enlargeCenterPage: true,
-                                scrollPhysics: BouncingScrollPhysics(),
+                                scrollPhysics: const BouncingScrollPhysics(),
                                 onPageChanged: (index, reason) {
                                   cubit.changeSliderIndecator(index);
                                 },
@@ -58,8 +58,8 @@ class CategorisTap extends StatelessWidget {
                             ),
                           ),
                           TabBar(
-                              physics: BouncingScrollPhysics(),
-                              labelPadding: EdgeInsets.all(5),
+                              physics: const BouncingScrollPhysics(),
+                              labelPadding: const EdgeInsets.all(5),
                               overlayColor: WidgetStateColor.transparent,
                               labelColor: defColor,
                               tabAlignment: TabAlignment.start,
@@ -73,7 +73,7 @@ class CategorisTap extends StatelessWidget {
 
                           GridView.count(
                               shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               crossAxisCount: 2,
                           children:
                           List.generate(cubit.categoryDataList.length, (index) => CategoryCardList(image: cubit.categoryDataList[index].image, text: cubit.categoryDataList[index].name),)
@@ -109,7 +109,7 @@ class CategoryCardList extends StatelessWidget {
           Image(image: NetworkImage(image),height: 150,width:200,),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(text,style: TextStyle(color: defColor),),
+            child: Text(text,style: const TextStyle(color: defColor),),
           )
         ],
       ),

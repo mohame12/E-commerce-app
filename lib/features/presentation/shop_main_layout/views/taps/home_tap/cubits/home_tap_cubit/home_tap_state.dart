@@ -17,3 +17,27 @@ class ChangeSlider extends HomeTapState{}
 
 class ChangeFavoritIcon extends HomeTapState{}
 
+class FavoritLoadingState extends HomeTapState{}
+class FavoritSuccessState extends HomeTapState{
+  final String msg;
+  final bool state;
+
+  FavoritSuccessState({required this.msg,required this.state});
+}
+class FavoritFailurState extends HomeTapState{
+  final String e;
+
+  FavoritFailurState({required this.e});
+}
+
+class FavoritChangeState extends HomeTapState{}
+
+
+class FavoritLoadingdataState extends HomeTapState{}
+class FavoritSuccessdataState extends HomeTapState{}
+
+class FavoritFailuerdataState extends HomeTapState{
+  final String e;
+
+  FavoritFailuerdataState({required this.e});
+}

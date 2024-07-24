@@ -23,7 +23,7 @@ async {
   UserDataFromStorage.getData();
 
 
-  runApp(MyApp());
+  runApp(const MyApp());
 
 }
 
@@ -35,8 +35,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => HomeCubit(),),
-        BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem(),),
+        BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem()..getfavorit(),),
         BlocProvider(create: (context) => CategoryTapCubit()..getCategoryData(),),
+
       ],
       child: MaterialApp(
 
@@ -47,8 +48,8 @@ class MyApp extends StatelessWidget {
           OnboardingVeiw.id:(context)=>OnboardingVeiw(),
           LoginView.id:(context)=>const LoginView(),
           RegisterView.id:(context)=>const RegisterView(),
-          ShopMain.id:(context)=>ShopMain(),
-          SplashScreen.id:(context)=>SplashScreen(),
+          ShopMain.id:(context)=>const ShopMain(),
+          SplashScreen.id:(context)=>const SplashScreen(),
         },
       ),
     );

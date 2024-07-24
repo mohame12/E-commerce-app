@@ -14,11 +14,12 @@ class Diohelper
     );
   }
 
-  static Future<Response> postData({required String url,required Map<String,dynamic>data})
+  static Future<Response> postData({required String url,required Map<String,dynamic>data,required String token})
   async {
     dio!.options.headers={
       'lang':'ar',
       'Content-Type':'application/json',
+      'Authorization':token??''
     };
   return  await dio!.post(url,data: data);
 }
