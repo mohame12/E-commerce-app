@@ -62,9 +62,9 @@ class Banner {
 
 class Product {
   int id;
-  double price;
-  double oldPrice;
-  int discount;
+  dynamic price;
+  dynamic oldPrice;
+  dynamic discount;
   String image;
   String name;
   bool inFavorites;

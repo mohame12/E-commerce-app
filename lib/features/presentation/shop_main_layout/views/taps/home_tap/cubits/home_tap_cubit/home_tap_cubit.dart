@@ -2,7 +2,8 @@ import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/model/home_ttap_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../../../core/network/servecs/dioHelper.dart';
-import '../../../favorits_tap/models/favorit_model.dart';
+import '../../../favorits_tap/models/fav_tap_model.dart';
+import '../../model/favorit_model.dart';
 
 class HomeTapCubit extends Cubit<HomeTapState>
 {
@@ -11,10 +12,10 @@ class HomeTapCubit extends Cubit<HomeTapState>
 
   List<dynamic>banners=[];
   List<dynamic>products=[];
-  Map<int,bool>favorit={};
+  Map<dynamic,bool>favorit={};
   getHomeTapItem()
   {
-    if(banners.isEmpty&&products.isEmpty)
+
       emit(HomeTapLoadingDataState());
       Diohelper.getData(url: 'home', token: 'hi1XsRenOQHTtyYdlaKAmbCf907ZqGq18hIAbtw5jruRh6iOsHDkdiPVni6Fi0FCJW96oP').then((val) {
         HomeTapModel model = HomeTapModel.fromJson(val.data);
@@ -41,15 +42,20 @@ class HomeTapCubit extends Cubit<HomeTapState>
     emit(FavoritChangeState());
     Diohelper.postData(url: 'favorites', data: {'product_id':id}, token: 'hi1XsRenOQHTtyYdlaKAmbCf907ZqGq18hIAbtw5jruRh6iOsHDkdiPVni6Fi0FCJW96oP').then((val){
       print(val);
+      print(favorit);
       Favorit favorits=Favorit.fromJson(val.data);
       if(!favorits.status)
         {
           favorit[id] = !favorit[id]!;
         }
+      else
+        {
+          getfavorit();
+        }
       emit(FavoritSuccessState(msg: favorits.message, state: favorits.status));
     }).catchError((e){
       favorit[id] = !favorit[id]!;
-      emit(FavoritFailurState(e: e));
+      emit(FavoritFailurState(e: e.toString()));
     });
   }
 
@@ -62,5 +68,23 @@ class HomeTapCubit extends Cubit<HomeTapState>
   }
 
 
+
+
+
+  List<dynamic>data=[];
+  getfavorit()
+  {
+    emit(FavoritLoadingState());
+    Diohelper.getData(url:'favorites' , token: 'hi1XsRenOQHTtyYdlaKAmbCf907ZqGq18hIAbtw5jruRh6iOsHDkdiPVni6Fi0FCJW96oP').then((val){
+      FavTapData favTapData=FavTapData.fromJson(val.data);
+      data=favTapData.data.data;
+      emit(FavoritSuccessdataState());
+
+    }).catchError((e){
+      print(e.toString());
+      emit(FavoritFailuerdataState(e: e));
+
+    });
+  }
 
 }

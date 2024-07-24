@@ -18,7 +18,6 @@ class ShopMain extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar:Theme(data:Theme.of(context).copyWith(splashColor: Colors.transparent,highlightColor: Colors.transparent) , child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-
         enableFeedback: true,
         elevation: 0,
 

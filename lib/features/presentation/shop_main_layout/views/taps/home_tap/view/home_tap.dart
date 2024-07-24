@@ -99,7 +99,7 @@ class HomeTap extends StatelessWidget {
                                                     (index) => GridViewItemBulder(
                                                       onPressed: (){
                                                         cubit.postfavorit(id: cubit.products[index].id);
-
+                                                        print(cubit.products[index].id);
 
                                                       },
                                                       image: cubit.products[index].image,
