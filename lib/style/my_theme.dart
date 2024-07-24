@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,7 +25,7 @@ import 'package:flutter/services.dart';
   ThemeData darkTheme=ThemeData(
     primarySwatch: Colors.blue,
       scaffoldBackgroundColor: Colors.black12,
-      textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+      textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           elevation: 20,
           backgroundColor: Colors.black12,

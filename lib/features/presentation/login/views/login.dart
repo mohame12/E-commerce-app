@@ -101,7 +101,7 @@ class LoginView extends StatelessWidget {
                     labelText: 'Email Address',
                     keyboardType: TextInputType.emailAddress,
                     obscureText: false,
-                    prefixIcon: Icon(Icons.email_outlined),
+                    prefixIcon: const Icon(Icons.email_outlined),
                     validator: (val) {
                       if(val?.isEmpty ??true)
                         {
@@ -128,7 +128,7 @@ class LoginView extends StatelessWidget {
                       }
                     },
                     controller: cubit.passcontroller,
-                    prefixIcon: Icon(Icons.lock_open_outlined),
+                    prefixIcon: const Icon(Icons.lock_open_outlined),
                     suffixIcon: IconButton(icon:Visibility(visible:cubit.visiable,child: Icon(cubit.icon)),onPressed: cubit.isvisiable,),
                     labelText: 'Password',
                     keyboardType: TextInputType.text,

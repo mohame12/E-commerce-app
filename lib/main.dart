@@ -6,6 +6,7 @@ import 'package:e_commerce_app/features/presentation/register/view/register_view
 import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_cubit.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/categors_tap/cubits/category_tap_cubit.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/favorits_tap/cubits/favorit_cubit.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/splash_screen.dart';
@@ -23,7 +24,7 @@ async {
   UserDataFromStorage.getData();
 
 
-  runApp(MyApp());
+  runApp(const MyApp());
 
 }
 
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => HomeCubit(),),
         BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem(),),
         BlocProvider(create: (context) => CategoryTapCubit()..getCategoryData(),),
+        BlocProvider(create: (context) => FavoritCubit(),)
       ],
       child: MaterialApp(
 
@@ -47,8 +49,8 @@ class MyApp extends StatelessWidget {
           OnboardingVeiw.id:(context)=>OnboardingVeiw(),
           LoginView.id:(context)=>const LoginView(),
           RegisterView.id:(context)=>const RegisterView(),
-          ShopMain.id:(context)=>ShopMain(),
-          SplashScreen.id:(context)=>SplashScreen(),
+          ShopMain.id:(context)=>const ShopMain(),
+          SplashScreen.id:(context)=>const SplashScreen(),
         },
       ),
     );

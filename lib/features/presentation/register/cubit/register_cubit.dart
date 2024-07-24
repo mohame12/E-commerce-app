@@ -1,7 +1,6 @@
 
 import 'package:e_commerce_app/core/network/servecs/dioHelper.dart';
 import 'package:e_commerce_app/features/presentation/register/cubit/register_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,7 +53,7 @@ class RegisterCubit extends Cubit<RegisterState>
       'email':email,
       'password':password,
       'phone':phone,
-    }).then((val){
+    }, token: '').then((val){
       RegisterDataModel dataModel=RegisterDataModel.fromJson(val.data);
       emit(RegisterSuccessDataState(message: dataModel.message, status:dataModel.status  ));
     }).catchError((e){

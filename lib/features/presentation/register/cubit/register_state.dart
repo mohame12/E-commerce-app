@@ -1,5 +1,3 @@
-import '../model/register_data_model.dart';
-
 abstract class RegisterState {}
 class RegisterInitialDataState extends RegisterState{}
 class RegisterLoadingdataState extends RegisterState{}
