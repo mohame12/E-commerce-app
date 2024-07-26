@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_state.dart';
+import 'package:e_commerce_app/features/presentation/login/cubit/login_cubit.dart';
+import 'package:e_commerce_app/features/presentation/login/cubit/login_state.dart';
 import 'package:e_commerce_app/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +15,7 @@ class HomeTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeTapCubit, HomeTapState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if(state is FavoritSuccessState)
           {
@@ -31,9 +31,10 @@ class HomeTap extends StatelessWidget {
           }
       },
       builder: (context, state) {
-        HomeTapCubit cubit = HomeTapCubit.get(context);
+        LoginCubit cubit = LoginCubit.get(context);
 
-        return Scaffold(
+        return
+          Scaffold(
             appBar: AppBar(
               forceMaterialTransparency: true,
               centerTitle: false,

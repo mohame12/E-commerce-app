@@ -229,6 +229,7 @@ class UserDataFromStorage {
   static removeDataFromStorage(String key) async{
     final prefs= await SharedPreferences.getInstance();
     await prefs.remove(key);
+    print('Success');
   }
 
 

@@ -25,6 +25,17 @@ class Diohelper
 }
 
 
+  static Future<Response> putData({required String url,required Map<String,dynamic>data,required String token})
+  async {
+    dio!.options.headers={
+      'lang':'ar',
+      'Content-Type':'application/json',
+      'Authorization':token??''
+    };
+    return  await dio!.put(url,data: data);
+  }
+
+
   static Future<Response> getData({required String url, required String token})
   async {
     dio!.options.headers={

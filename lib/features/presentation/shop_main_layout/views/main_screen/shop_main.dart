@@ -8,7 +8,9 @@ class ShopMain extends StatelessWidget {
   static const String id='ShopMain';
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
+    return BlocProvider(
+  create: (context) => HomeCubit(),
+  child: BlocConsumer<HomeCubit, HomeState>(
   listener: (context, state) {
 
   },
@@ -30,6 +32,7 @@ class ShopMain extends StatelessWidget {
 
     );
   },
+),
 );
   }
 }

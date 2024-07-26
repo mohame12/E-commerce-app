@@ -179,7 +179,7 @@ class RegisterView extends StatelessWidget {
                             ),
                             TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, LoginView.id);
+                                  Navigator.pushNamedAndRemoveUntil(context, LoginView.id,(route) => false, );
                                 },
                                 child: Text(
                                   'LOGIN',
