@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_state.dart';
+import 'package:e_commerce_app/features/presentation/login/cubit/login_cubit.dart';
+import 'package:e_commerce_app/features/presentation/login/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -10,7 +10,7 @@ class FavoritTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeTapCubit,HomeTapState >(
+    return BlocConsumer<LoginCubit,LoginState >(
   listener: (context, state) {
     if(state is FavoritSuccessState)
     {
@@ -26,13 +26,14 @@ class FavoritTap extends StatelessWidget {
     }
   },
   builder: (context, state) {
-    HomeTapCubit cubit=HomeTapCubit.get(context);
+    LoginCubit cubit=LoginCubit.get(context);
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: Text('Favorits',style: Theme.of(context).textTheme.titleMedium,),
       ),
-      body:cubit.data.isNotEmpty? ListView.builder(
+      body:cubit.data.isNotEmpty?
+      ListView.builder(
         itemCount: cubit.data.length,
         itemBuilder: (context, index) => FavoritItem(cubit: cubit, index: index,),)
       :Center(
@@ -56,7 +57,7 @@ class FavoritItem extends StatelessWidget {
     super.key, required this.cubit, required this.index,
   });
   final int index;
-  final HomeTapCubit cubit;
+  final LoginCubit cubit;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -117,7 +118,7 @@ class FavoritItem extends StatelessWidget {
                 cubit.postfavorit(id: cubit.data[index].product.id);
 
               },
-                  icon:cubit.favorit[cubit.data[index].product.id] as bool? Icon(Icons.favorite,color: defColor,):Icon(Icons.favorite_border,color: defColor,)),
+                  icon:cubit.favorit[cubit.data[index].product.id] ??false ? Icon(Icons.favorite,color: defColor,):Icon(Icons.favorite_border,color: defColor,)),
               SizedBox(width: 15,)
             ],
           ),
