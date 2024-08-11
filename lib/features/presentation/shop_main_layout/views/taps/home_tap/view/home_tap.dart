@@ -46,7 +46,9 @@ class HomeTap extends StatelessWidget {
               actions: [
                 IconButton(
                   icon: const Icon(Icons.search),
-                  onPressed: () {},
+                  onPressed: () {
+                    cubit.onPressedSearchNavigat(context: context);
+                  },
                 )
               ],
             ),

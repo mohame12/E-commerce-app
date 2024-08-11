@@ -6,6 +6,8 @@ class HomeTapCubit extends Cubit<HomeTapState>
   HomeTapCubit():super(HomeTapInitialState());
   static HomeTapCubit get(context)=>BlocProvider.of(context);
 
+
+
   // List<dynamic>banners=[];
   // List<dynamic>products=[];
   // Map<dynamic,bool>favorit={};

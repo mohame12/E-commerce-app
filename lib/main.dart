@@ -4,6 +4,7 @@ import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
 import 'package:e_commerce_app/features/presentation/login/cubit/login_cubit.dart';
 import 'package:e_commerce_app/features/presentation/login/views/login.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/search/search_view/search_view.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/categors_tap/cubits/category_tap_cubit.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
@@ -20,16 +21,12 @@ async {
   Bloc.observer = MyBlocObserver();
   Diohelper.inint();
   UserDataFromStorage.getData();
-
-
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
-
-
   const MyApp({super.key});
+  @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
@@ -45,8 +42,9 @@ class MyApp extends StatelessWidget {
           OnboardingVeiw.id:(context)=>OnboardingVeiw(),
           LoginView.id:(context)=>const LoginView(),
           RegisterView.id:(context)=>const RegisterView(),
-          ShopMain.id:(context)=> ShopMain(),
+          ShopMain.id:(context)=> const ShopMain(),
           SplashScreen.id:(context)=>const SplashScreen(),
+          SearchView.id:(context)=>const SearchView(),
         },
       ),
     );
