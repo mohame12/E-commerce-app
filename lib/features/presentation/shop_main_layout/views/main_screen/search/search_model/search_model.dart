@@ -1,13 +1,13 @@
-class HomeTapModel {
+class SearchModel {
   bool status;
   Data data;
 
-  HomeTapModel({
+  SearchModel({
     required this.status,
     required this.data,
   });
 
-  factory HomeTapModel.fromJson(Map<String, dynamic> json) => HomeTapModel(
+  factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
     status: json["status"],
     data: Data.fromJson(json["data"]),
   );
@@ -19,75 +19,53 @@ class HomeTapModel {
 }
 
 class Data {
-  List<Banner> banners;
-  List<Product> products;
+
+  List<Datum> data;
 
   Data({
-    required this.banners,
-    required this.products,
+    required this.data,
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-    banners: List<Banner>.from(json["banners"].map((x) => Banner.fromJson(x))),
-    products: List<Product>.from(json["products"].map((x) => Product.fromJson(x))),
+    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "banners": List<dynamic>.from(banners.map((x) => x.toJson())),
-    "products": List<dynamic>.from(products.map((x) => x.toJson())),
+    "data": List<dynamic>.from(data.map((x) => x.toJson())),
   };
 }
 
-class Banner {
-  int id;
-  String image;
-
-
-  Banner({
-    required this.id,
-    required this.image,
-  });
-
-  factory Banner.fromJson(Map<String, dynamic> json) => Banner(
-    id: json["id"],
-    image: json["image"],
-
-  );
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "image": image,
-  };
-}
-
-class Product {
-  int id;
+class Datum {
+  dynamic id;
   dynamic price;
   dynamic oldPrice;
   dynamic discount;
   String image;
   String name;
+  String description;
   bool inFavorites;
   bool inCart;
 
-  Product({
+  Datum({
     required this.id,
     required this.price,
     required this.oldPrice,
     required this.discount,
     required this.image,
     required this.name,
+    required this.description,
     required this.inFavorites,
     required this.inCart,
   });
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
     id: json["id"],
     price: json["price"]?.toDouble(),
     oldPrice: json["old_price"]?.toDouble(),
     discount: json["discount"],
     image: json["image"],
     name: json["name"],
+    description: json["description"],
     inFavorites: json["in_favorites"],
     inCart: json["in_cart"],
   );
@@ -99,6 +77,7 @@ class Product {
     "discount": discount,
     "image": image,
     "name": name,
+    "description": description,
     "in_favorites": inFavorites,
     "in_cart": inCart,
   };

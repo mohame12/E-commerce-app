@@ -70,7 +70,7 @@ class RegisterView extends StatelessWidget {
                               .titleLarge
                               ?.copyWith(fontSize: 35),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         DefTff(
@@ -88,7 +88,7 @@ class RegisterView extends StatelessWidget {
                               }
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         DefTff(
@@ -106,7 +106,7 @@ class RegisterView extends StatelessWidget {
                             }
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         DefTff(
@@ -129,7 +129,7 @@ class RegisterView extends StatelessWidget {
                           },
                           onChanged: cubit.onchange,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         DefTff(
@@ -147,7 +147,7 @@ class RegisterView extends StatelessWidget {
                             }
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 45,
                         ),
                         DefButtom(
@@ -167,7 +167,7 @@ class RegisterView extends StatelessWidget {
                               'R E G I S T E R',
                               style: Theme.of(context).textTheme.bodyMedium,
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Row(
@@ -179,7 +179,7 @@ class RegisterView extends StatelessWidget {
                             ),
                             TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, LoginView.id);
+                                  Navigator.pushNamedAndRemoveUntil(context, LoginView.id,(route) => false, );
                                 },
                                 child: Text(
                                   'LOGIN',

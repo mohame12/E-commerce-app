@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce_app/core/network/servecs/dioHelper.dart';
 import 'package:e_commerce_app/core/sharedpref/shared_pref.dart';
+import 'package:e_commerce_app/features/presentation/login/cubit/login_cubit.dart';
 import 'package:e_commerce_app/features/presentation/login/views/login.dart';
 import 'package:e_commerce_app/features/presentation/register/view/register_view.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/cubit/homecubit_cubit.dart';
+import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/search/search_view/search_view.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/main_screen/shop_main.dart';
 import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/categors_tap/cubits/category_tap_cubit.dart';
-import 'package:e_commerce_app/features/presentation/shop_main_layout/views/taps/home_tap/cubits/home_tap_cubit/home_tap_cubit.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/onboarding_veiw.dart';
 import 'package:e_commerce_app/features/presentation/splash/views/splash_screen.dart';
 import 'package:e_commerce_app/style/my_theme.dart';
@@ -21,22 +21,17 @@ async {
   Bloc.observer = MyBlocObserver();
   Diohelper.inint();
   UserDataFromStorage.getData();
-
-
-  runApp(MyApp());
-
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
-
   const MyApp({super.key});
+  @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => HomeCubit(),),
-        BlocProvider(create: (context) => HomeTapCubit()..getHomeTapItem(),),
         BlocProvider(create: (context) => CategoryTapCubit()..getCategoryData(),),
+        BlocProvider(create: (context) => LoginCubit()..getHomeTapItem(token: UserDataFromStorage.userId)..getProfile(token: UserDataFromStorage.userId)..getfavorit(token: UserDataFromStorage.userId),)
       ],
       child: MaterialApp(
 
@@ -47,8 +42,9 @@ class MyApp extends StatelessWidget {
           OnboardingVeiw.id:(context)=>OnboardingVeiw(),
           LoginView.id:(context)=>const LoginView(),
           RegisterView.id:(context)=>const RegisterView(),
-          ShopMain.id:(context)=>ShopMain(),
-          SplashScreen.id:(context)=>SplashScreen(),
+          ShopMain.id:(context)=> const ShopMain(),
+          SplashScreen.id:(context)=>const SplashScreen(),
+          SearchView.id:(context)=>const SearchView(),
         },
       ),
     );

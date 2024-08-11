@@ -8,7 +8,9 @@ class ShopMain extends StatelessWidget {
   static const String id='ShopMain';
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
+    return BlocProvider(
+  create: (context) => HomeCubit(),
+  child: BlocConsumer<HomeCubit, HomeState>(
   listener: (context, state) {
 
   },
@@ -18,7 +20,6 @@ class ShopMain extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar:Theme(data:Theme.of(context).copyWith(splashColor: Colors.transparent,highlightColor: Colors.transparent) , child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-
         enableFeedback: true,
         elevation: 0,
 
@@ -31,6 +32,7 @@ class ShopMain extends StatelessWidget {
 
     );
   },
+),
 );
   }
 }
