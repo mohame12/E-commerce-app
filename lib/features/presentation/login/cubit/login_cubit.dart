@@ -7,6 +7,8 @@ import '../../../../core/sharedpref/shared_pref.dart';
 import '../../../../core/widgets/def_TFF.dart';
 import '../../../../core/widgets/defbuttom.dart';
 import '../../../../style/colors.dart';
+import '../../shop_main_layout/views/main_screen/search/search_model/search_model.dart';
+import '../../shop_main_layout/views/main_screen/search/search_view/search_view.dart';
 import '../../shop_main_layout/views/taps/favorits_tap/models/fav_tap_model.dart';
 import '../../shop_main_layout/views/taps/home_tap/model/favorit_model.dart';
 import '../../shop_main_layout/views/taps/home_tap/model/home_ttap_model.dart';
@@ -235,6 +237,12 @@ class LoginCubit extends Cubit<LoginState>
   }
 
 
+  onPressedSearchNavigat({required BuildContext context})
+  {
+
+
+    Navigator.pushNamed(context,SearchView.id );
+  }
 
 
 
@@ -263,4 +271,33 @@ class LoginCubit extends Cubit<LoginState>
           emit(LoginOnchangeState());
         }
   }
+
+
+  TextEditingController controller=TextEditingController();
+  SearchModel ?model3;
+  Search({required String s})
+  {
+    emit(SearchLoadingState());
+    Diohelper.postData(url: 'products/search', data: {
+      "text":s,
+    }, token: UserDataFromStorage.userId).then((val){
+      print(val);
+      model3=SearchModel.fromJson(val.data);
+      emit(SearchSuccessState(model: model3));
+    }).catchError((e){
+      print(e.toString());
+
+      emit(SearchFailiurState(e: e.toString()));
+    });
+  }
+
+
+  onChanges({required String s})
+   {
+     Search(s: s);
+  }
+
+
+
+
 }

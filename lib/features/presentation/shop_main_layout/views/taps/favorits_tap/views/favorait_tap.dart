@@ -36,7 +36,9 @@ class FavoritTap extends StatelessWidget {
       ListView.builder(
         itemCount: cubit.data.length,
         itemBuilder: (context, index) => FavoritItem(cubit: cubit, index: index,),)
-      :Center(
+
+
+          :Center(
         child: Text('Add Favorits List',style: Theme.of(context).textTheme.bodyLarge?.copyWith(
           color: Colors.grey.shade500,
           fontSize: 20

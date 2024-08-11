@@ -1,3 +1,4 @@
+import '../../shop_main_layout/views/main_screen/search/search_model/search_model.dart';
 import '../../shop_main_layout/views/taps/home_tap/model/home_ttap_model.dart';
 import '../../shop_main_layout/views/taps/settings_tap/models/profile_model.dart';
 import '../../shop_main_layout/views/taps/settings_tap/models/profile_update_data.dart';
@@ -98,3 +99,17 @@ class Logout extends LoginState{
 }
 
 
+
+class SearchInitailState extends LoginState{}
+class SearchLoadingState extends LoginState{}
+class SearchSuccessState extends LoginState{
+  final SearchModel ?model;
+
+  SearchSuccessState({required this.model});
+}
+class SearchFailiurState extends LoginState{
+  final String e;
+
+  SearchFailiurState({required this.e});
+
+}
