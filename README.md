@@ -1,5 +1,5 @@
 # e_commerce_app
-create E commerce by using REST API (Registration - Login - Logout - GetProducts - add/removeFavorits - update profile)
+Develop an E-commerce application using REST API for features such as Registration, Login, Logout, Get Products, Add/Remove Favorites, and Update Profile. Implement Cubit for state management and use Shared Preferences to store the user's last login and token.
 ![1](https://github.com/user-attachments/assets/c3442749-8d34-4a5b-803e-5a45b230c1d7)
 ![2](https://github.com/user-attachments/assets/13dd6166-2c67-4a7c-b48e-031b8f92a762)
 ![3](https://github.com/user-attachments/assets/f9b8153b-2a7e-4d9e-baee-b210535d1d0b)
